@@ -1,141 +1,74 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-<meta name="pinterest" content="nopin">
-<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-<meta name="generator" content="Hugo 0.85.0" />
-
-<link rel="alternate" type="application/rss+xml" title="RSS" href="https://zamoramerida.github.io/index.xml">
-
-<link rel="canonical" href="https://zamoramerida.github.io/">
-
-
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>zamoramerida Hugo Site</title>
-    
-    <link href="https://zamoramerida.github.iocss/styles.css" rel="stylesheet">
-    
-
-  </head>
-
-  <body>
-    
-    
-    
-
-    <header class="l-header">
-      <nav class="navbar navbar-default">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zamoramerida</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
+        .navbar { background: #343a40 !important; }
+        .navbar-brand, .navbar-nav .nav-link { color: white !important; }
+        .hero { background: #007bff; color: white; padding: 60px 0; text-align: center; }
+        .hero h1 { font-size: 2.5rem; font-weight: bold; }
+        .post-card { transition: 0.3s; border-radius: 10px; }
+        .post-card:hover { transform: scale(1.03); }
+        .footer { background: #343a40; color: white; padding: 10px 0; text-align: center; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+            <a class="navbar-brand" href="#">Zamoramerida</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="https://zamoramerida.github.io">zamoramerida Hugo Site</a>
-          </div>
-
-          
-
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                </ul>
+            </div>
         </div>
-      </nav>
-    </header>
+    </nav>
 
-    <main>
-      <div class="container">
-        
-<div class="row">
-  <div class="col-md-8">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to Zamoramerida</h1>
+            <p>Sharing knowledge and insights</p>
+        </div>
+    </section>
 
-    
-
-    <ul class="p-articles">
-      
-      <li><article class="li">
-  <header>
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2021-08-11T15:51:38JST">Aug 11, 2021</time></li>
-      
-      
-    </ul>
-    <h2 class="title"><a href="https://zamoramerida.github.io/about/">About</a></h2>
-  </header>
-
-  
-  <div class="summary">Nothing much to say at this point!</div>
-
-  
-</article>
-</li>
-      
-    </ul>
-
-    
-
-
-  </div>
-  <div class="col-md-4">
-    
-<aside class="l-sidebar">
-
-  <section class="panel panel-default">
-    <div class="panel-heading">
-      <div class="panel-title">LATESTS</div>
+    <!-- Blog Posts -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card post-card p-3 shadow-sm">
+                            <h3><a href="#" class="text-decoration-none">About</a></h3>
+                            <p>Nothing much to say at this point!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">Latest Post</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="list-group">
-      
-      <a href="https://zamoramerida.github.io/about/" class="list-group-item">About</a>
-      
-    </div>
-  </section>
 
-  
-  <section class="panel panel-default">
-    <div class="panel-heading">
-      <div class="panel-title">CATEGORY</div>
-    </div>
-    <div class="list-group">
-      
-    </div>
-  </section>
-  
-  <section class="panel panel-default">
-    <div class="panel-heading">
-      <div class="panel-title">TAG</div>
-    </div>
-    <div class="list-group">
-      
-    </div>
-  </section>
-  
-
-</aside>
-
-
-  </div>
-</div>
-
-      </div>
-    </main>
-
-    <footer class="l-footer">
-      <div class="container">
-        <p><span class="h-logo">&copy; zamoramerida Hugo Site</span></p>
-        <aside>
-          <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
-          <p><a href="https://github.com/dim0627/hugo_theme_beg">Beg</a> designed by <a href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
-        </aside>
-      </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Zamoramerida | Powered by <a href="https://gohugo.io/" style="color: white;">Hugo</a></p>
+        </div>
     </footer>
 
-    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
-
