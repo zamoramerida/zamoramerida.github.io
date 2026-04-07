@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zamors Merida - SRE DevOps Engineer</title>
+    <title>Zamora Merida - DevOps & SRE Engineer</title>
     <style>
         :root {
-            --primary-color: #0a0a0a;
-            --secondary-color: #333;
-            --accent-color: #0066ff;
-            --text-color: #333;
-            --background-color: #ffffff;
+            --primary-color: #0d1b2a;
+            --secondary-color: #334e68;
+            --accent-color: #4f8dff;
+            --text-color: #102a43;
+            --background-color: #f7fafc;
+            --card-background: #ffffff;
+            --border-color: #d9e2ec;
         }
 
         * {
@@ -20,35 +22,36 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
             color: var(--text-color);
             background-color: var(--background-color);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1080px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 2rem 1.5rem;
         }
 
         header {
-            padding: 4rem 0;
+            padding: 4rem 0 3rem;
             text-align: center;
-            border-bottom: 1px solid #eee;
+            position: relative;
         }
 
         h1 {
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: clamp(2.5rem, 4vw, 3.75rem);
+            font-weight: 800;
             margin-bottom: 1rem;
             color: var(--primary-color);
         }
 
         .subtitle {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             color: var(--secondary-color);
-            margin-bottom: 2rem;
+            max-width: 720px;
+            margin: 0 auto 1.75rem;
         }
 
         .section {
@@ -57,85 +60,118 @@
 
         .section-title {
             font-size: 2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             color: var(--primary-color);
+        }
+
+        .section-intro {
+            max-width: 760px;
+            color: var(--secondary-color);
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.75rem;
             margin-top: 2rem;
         }
 
         .skill-card {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            transition: transform 0.2s;
+            background: var(--card-background);
+            border: 1px solid var(--border-color);
+            padding: 1.75rem;
+            border-radius: 18px;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
         .skill-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
+            box-shadow: 0 22px 48px rgba(15, 23, 42, 0.11);
         }
 
         .skill-title {
-            font-size: 1.2rem;
-            font-weight: 600;
+            font-size: 1.25rem;
+            font-weight: 700;
             margin-bottom: 1rem;
             color: var(--accent-color);
         }
 
         .skill-list {
             list-style: none;
+            padding-left: 0;
+            color: var(--secondary-color);
         }
 
         .skill-list li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .impact-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            gap: 0.85rem;
+            color: var(--secondary-color);
+        }
+
+        .impact-list li {
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .impact-list li::before {
+            content: '\25b9';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
         }
 
         .contact-links {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 1rem;
         }
 
         .contact-link {
-            color: var(--accent-color);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem 1.3rem;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            color: white;
+            background: var(--accent-color);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            transition: background 0.2s ease, transform 0.2s ease;
         }
 
         .contact-link:hover {
-            text-decoration: underline;
+            background: #3b73d9;
+            transform: translateY(-2px);
         }
 
         .github-stats {
-            margin-top: 4rem;
+            margin-top: 3rem;
             text-align: center;
         }
 
         .github-stats img {
             max-width: 100%;
             height: auto;
+            border-radius: 18px;
+            margin-top: 1rem;
         }
 
         @media (max-width: 768px) {
             .container {
-                padding: 1rem;
+                padding: 1.5rem;
             }
 
-            h1 {
-                font-size: 2rem;
-            }
-
-            .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .section {
+                margin: 3rem 0;
             }
         }
     </style>
@@ -144,7 +180,7 @@
     <div class="container">
         <header>
             <h1>Zamora Merida</h1>
-            <p class="subtitle">DevOps Engineer</p>
+            <p class="subtitle">Reliability-first DevOps and SRE engineer modernizing applications, infrastructure, and production operations for distributed systems.</p>
             <div class="contact-links">
                 <a href="https://github.com/zamoramerida" class="contact-link">GitHub</a>
                 <a href="https://linkedin.com/in/your-profile" class="contact-link">LinkedIn</a>
@@ -154,49 +190,59 @@
 
         <section class="section">
             <h2 class="section-title">About Me</h2>
-            <p>I'm a passionate DevOps Engineer focused on building and maintaining robust, scalable infrastructure and implementing efficient CI/CD pipelines. With expertise in cloud technologies, automation, and infrastructure as code, I help organizations streamline their development and deployment processes.</p>
+            <p class="section-intro">I partner with engineering teams to build scalable, secure systems with a strong focus on service reliability, automation, and operational excellence. My work spans cloud-native platform engineering, SRE practices, and modern CI/CD workflows that reduce risk and improve developer velocity.</p>
         </section>
 
         <section class="section">
-            <h2 class="section-title">Technical Expertise</h2>
+            <h2 class="section-title">Core Capabilities</h2>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <h3 class="skill-title">Cloud Platforms</h3>
+                    <h3 class="skill-title">Cloud & Platform Engineering</h3>
                     <ul class="skill-list">
-                        <li>AWS</li>
-                        <li>Azure</li>
-                        <li>GCP</li>
+                        <li>AWS, Azure, GCP</li>
+                        <li>Kubernetes, EKS, AKS, GKE</li>
+                        <li>GitOps, platform automation, container platforms</li>
                     </ul>
                 </div>
                 <div class="skill-card">
-                    <h3 class="skill-title">Infrastructure as Code</h3>
+                    <h3 class="skill-title">Reliability & SRE</h3>
                     <ul class="skill-list">
-                        <li>Terraform</li>
-                        <li>CloudFormation</li>
-                        <li>Ansible</li>
+                        <li>SLOs, SLIs, and error budget management</li>
+                        <li>Incident response, postmortems, and runbooks</li>
+                        <li>Chaos engineering and resilience testing</li>
                     </ul>
                 </div>
                 <div class="skill-card">
-                    <h3 class="skill-title">Containerization</h3>
+                    <h3 class="skill-title">Automation & Delivery</h3>
                     <ul class="skill-list">
-                        <li>Docker</li>
-                        <li>Kubernetes</li>
-                        <li>Container Orchestration</li>
+                        <li>Terraform, Pulumi, Ansible</li>
+                        <li>GitHub Actions, GitLab CI, Argo CD</li>
+                        <li>Release pipelines, drift remediation, and IaC</li>
                     </ul>
                 </div>
                 <div class="skill-card">
-                    <h3 class="skill-title">CI/CD & Monitoring</h3>
+                    <h3 class="skill-title">Observability & Security</h3>
                     <ul class="skill-list">
-                        <li>Jenkins</li>
-                        <li>GitHub Actions</li>
-                        <li>Prometheus & Grafana</li>
+                        <li>Prometheus, Grafana, Loki, OpenTelemetry</li>
+                        <li>ELK, Datadog, tracing, and log aggregation</li>
+                        <li>Security scanning, compliance, and audit automation</li>
                     </ul>
                 </div>
             </div>
         </section>
 
+        <section class="section">
+            <h2 class="section-title">Impact</h2>
+            <ul class="impact-list">
+                <li>Modernized applications and infrastructure to support scalable production workloads.</li>
+                <li>Improved reliability with SLO-driven monitoring, alerting, and incident processes.</li>
+                <li>Automated deployments and infrastructure delivery to eliminate manual toil.</li>
+                <li>Implemented end-to-end observability and proactive response for distributed systems.</li>
+            </ul>
+        </section>
+
         <section class="section github-stats">
-            <h2 class="section-title">GitHub Statistics</h2>
+            <h2 class="section-title">GitHub Snapshot</h2>
             <img src="https://github-readme-stats.vercel.app/api?username=zamoramerida&show_icons=true&theme=radical" alt="GitHub Stats">
             <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=zamoramerida&layout=compact&theme=radical" alt="Top Languages">
         </section>
