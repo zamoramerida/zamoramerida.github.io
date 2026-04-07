@@ -1,30 +1,30 @@
-# 👋 Hi, I'm [Your Name]
+# 👋 Hi, I'm Zamora Merida
 
-## 🚀 DevOps Engineer
+## 🚀 DevOps & SRE Engineer
 
-I'm passionate about building and maintaining robust, scalable infrastructure and implementing efficient CI/CD pipelines. With expertise in cloud technologies, automation, and infrastructure as code, I help organizations streamline their development and deployment processes.
+I modernize applications and infrastructure with a strong emphasis on reliability, automation, and cloud-native operations. I help teams scale production systems, reduce downtime, and increase deployment velocity through platform engineering and SRE best practices.
 
 ### 🛠️ Technical Skills
 
 - **Cloud Platforms**: AWS, Azure, GCP
-- **Infrastructure as Code**: Terraform, CloudFormation
-- **Containerization**: Docker, Kubernetes
-- **CI/CD**: Jenkins, GitHub Actions, GitLab CI
-- **Monitoring & Logging**: Prometheus, Grafana, ELK Stack
-- **Configuration Management**: Ansible, Puppet
-- **Scripting**: Python, Bash, PowerShell
-- **Version Control**: Git, GitHub, GitLab
+- **Infrastructure as Code**: Terraform, Pulumi, CloudFormation
+- **Containerization & Orchestration**: Docker, Kubernetes, Argo CD
+- **CI/CD & Delivery**: GitHub Actions, GitLab CI, Jenkins
+- **Reliability Engineering**: SLOs, SLIs, error budgets, incident response
+- **Observability**: Prometheus, Grafana, Loki, ELK, OpenTelemetry
+- **Security & Compliance**: DevSecOps automation, policy enforcement, auditing
+- **Scripting & Automation**: Python, Bash, PowerShell
 
 ### 💼 Professional Experience
 
-- **Infrastructure Automation**: Designing and implementing automated infrastructure deployment pipelines
-- **Cloud Architecture**: Building scalable and secure cloud infrastructure
-- **DevOps Practices**: Implementing CI/CD pipelines and best practices
-- **Monitoring & Security**: Setting up monitoring solutions and implementing security best practices
+- **Platform Modernization**: Migrating legacy applications to managed Kubernetes and cloud-native platforms
+- **Reliability Programs**: Defining service-level objectives, building runbooks, and driving incident readiness
+- **Automated Delivery**: Creating CI/CD pipelines, GitOps workflows, and infrastructure delivery automation
+- **Observability & Monitoring**: Implementing monitoring, tracing, and alerting for production readiness
 
 ### 📊 GitHub Stats
 
-![Your GitHub stats](https://github-readme-stats.vercel.app/api?username=zamoramerida&show_icons=true&theme=radical)
+![GitHub stats](https://github-readme-stats.vercel.app/api?username=zamoramerida&show_icons=true&theme=radical)
 
 ### 🏆 Top Languages
 
