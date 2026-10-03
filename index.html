@@ -165,6 +165,92 @@
             margin-top: 1rem;
         }
 
+        .updates-section {
+            padding: 2.25rem;
+            border: 1px solid var(--border-color);
+            border-radius: 22px;
+            background: linear-gradient(135deg, #ffffff 0%, #f1f7ff 100%);
+        }
+
+        .updates-heading {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1.5rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .updates-heading .section-title {
+            margin-bottom: 0.35rem;
+        }
+
+        .refresh-button {
+            flex: 0 0 auto;
+            padding: 0.6rem 0.95rem;
+            border: 1px solid #b8d2ff;
+            border-radius: 999px;
+            color: #1e5fc7;
+            background: white;
+            font: inherit;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .refresh-button:hover,
+        .refresh-button:focus-visible {
+            background: #eaf3ff;
+        }
+
+        .updates-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .update-column h3 {
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+
+        .update-list {
+            display: grid;
+            gap: 0.8rem;
+            list-style: none;
+        }
+
+        .update-item {
+            min-height: 5.6rem;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.92);
+        }
+
+        .update-item a {
+            color: var(--primary-color);
+            font-weight: 700;
+            line-height: 1.35;
+            text-decoration: none;
+        }
+
+        .update-item a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .update-meta,
+        .updates-status {
+            display: block;
+            margin-top: 0.45rem;
+            color: var(--secondary-color);
+            font-size: 0.82rem;
+        }
+
+        .updates-status {
+            margin-top: 1.4rem;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 1.5rem;
@@ -172,6 +258,23 @@
 
             .section {
                 margin: 3rem 0;
+            }
+
+            .updates-section {
+                padding: 1.4rem;
+            }
+
+            .updates-heading,
+            .updates-grid {
+                display: block;
+            }
+
+            .refresh-button {
+                margin-top: 1rem;
+            }
+
+            .update-column + .update-column {
+                margin-top: 1.75rem;
             }
         }
     </style>
@@ -241,11 +344,99 @@
             </ul>
         </section>
 
+        <section class="section updates-section" aria-labelledby="updates-title">
+            <div class="updates-heading">
+                <div>
+                    <h2 class="section-title" id="updates-title">DevOps radar</h2>
+                    <p class="section-intro">Fresh reads on platform engineering, reliability, AI agents, and autonomous delivery workflows.</p>
+                </div>
+                <button class="refresh-button" id="refresh-updates" type="button">Refresh updates</button>
+            </div>
+            <div class="updates-grid">
+                <div class="update-column">
+                    <h3>DevOps &amp; SRE</h3>
+                    <ul class="update-list" id="devops-updates" aria-live="polite">
+                        <li class="update-item">Loading the latest DevOps updates…</li>
+                    </ul>
+                </div>
+                <div class="update-column">
+                    <h3>Agentic DevOps</h3>
+                    <ul class="update-list" id="agentic-updates" aria-live="polite">
+                        <li class="update-item">Loading the latest agentic DevOps updates…</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="updates-status" id="updates-status">Updates are sourced from the DEV Community and refresh automatically every 15 minutes.</p>
+        </section>
+
         <section class="section github-stats">
             <h2 class="section-title">GitHub Snapshot</h2>
             <img src="https://github-readme-stats.vercel.app/api?username=zamoramerida&show_icons=true&theme=radical" alt="GitHub Stats">
             <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=zamoramerida&layout=compact&theme=radical" alt="Top Languages">
         </section>
     </div>
+    <script>
+        (() => {
+            const API = 'https://dev.to/api/articles?per_page=30&top=7&tag=';
+            const refreshEveryMs = 15 * 60 * 1000;
+            const agenticTerms = /\b(agent|agentic|ai|llm|copilot|autonomous|generative)\b/i;
+            const devopsList = document.getElementById('devops-updates');
+            const agenticList = document.getElementById('agentic-updates');
+            const status = document.getElementById('updates-status');
+            const refreshButton = document.getElementById('refresh-updates');
+
+            const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+            })[character]);
+
+            const displayDate = (date) => new Intl.DateTimeFormat(undefined, {
+                month: 'short', day: 'numeric', year: 'numeric'
+            }).format(new Date(date));
+
+            const render = (list, articles, emptyMessage) => {
+                if (!articles.length) {
+                    list.innerHTML = `<li class="update-item">${emptyMessage}</li>`;
+                    return;
+                }
+                list.innerHTML = articles.slice(0, 4).map((article) => `
+                    <li class="update-item">
+                        <a href="${escapeHtml(article.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(article.title)}</a>
+                        <span class="update-meta">${escapeHtml(article.user.name)} · ${displayDate(article.published_at)}</span>
+                    </li>`).join('');
+            };
+
+            const loadUpdates = async () => {
+                refreshButton.disabled = true;
+                refreshButton.textContent = 'Refreshing…';
+                try {
+                    const [devopsResponse, aiResponse] = await Promise.all([
+                        fetch(`${API}devops`),
+                        fetch(`${API}ai`)
+                    ]);
+                    if (!devopsResponse.ok || !aiResponse.ok) throw new Error('Source unavailable');
+                    const [devops, ai] = await Promise.all([devopsResponse.json(), aiResponse.json()]);
+                    const agentic = [...devops, ...ai]
+                        .filter((article, index, all) => agenticTerms.test(`${article.title} ${article.description || ''}`) &&
+                            all.findIndex((candidate) => candidate.id === article.id) === index)
+                        .sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
+                    render(devopsList, devops, 'No DevOps updates are available right now.');
+                    render(agenticList, agentic, 'No agentic DevOps updates are available right now.');
+                    status.textContent = `Last refreshed ${new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}. Updates are sourced from the DEV Community.`;
+                } catch (error) {
+                    const message = 'Updates could not be loaded right now. Please try again shortly.';
+                    render(devopsList, [], message);
+                    render(agenticList, [], message);
+                    status.textContent = 'The update source is temporarily unavailable. Existing page content is unaffected.';
+                } finally {
+                    refreshButton.disabled = false;
+                    refreshButton.textContent = 'Refresh updates';
+                }
+            };
+
+            refreshButton.addEventListener('click', loadUpdates);
+            loadUpdates();
+            window.setInterval(loadUpdates, refreshEveryMs);
+        })();
+    </script>
 </body>
 </html>
